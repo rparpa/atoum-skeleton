@@ -4,6 +4,8 @@ namespace Skeleton;
 
 class Skeleton
 {
+    const HELLO = 42;
+
     public function useAnotherClass(Head $head)
     {
         return $head->howManyEyes();

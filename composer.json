@@ -12,6 +12,6 @@
         "atoum/atoum": "~1.1"
     },
     "autoload": {
-        "psr-0": {"Skeleton\\": "source/"}
+        "psr-4": {"Skeleton\\": "source/Skeleton"}
     }
 }
