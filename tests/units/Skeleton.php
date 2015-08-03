@@ -92,4 +92,28 @@ class Skeleton extends atoum\test
             ->integer($this->testedInstance->useAnotherClass($head))->isEqualTo(3)
         ;
     }
+
+    public function jsonFloatProvider()
+    {
+        $json = json_decode('[{"tax_rate": 0.948778, "start_date": "2040-01-23", "end_date": "2026-04-07"}]');
+
+        $d = array();
+        foreach ($json as $data) {
+            $d[] = array($data);
+        }
+
+        return $d;
+    }
+
+    /**
+     * @dataProvider    jsonFloatProvider
+     */
+    public function testJsonFloat($d)
+    {
+        $this->object($this->newTestedInstance)
+            ->isTestedInstance()
+            ->when($this->testedInstance->setA($d->tax_rate))
+            ->then()
+            ->float($this->testedInstance->getA())->isEqualTo($d->tax_rate);
+    }
 }
