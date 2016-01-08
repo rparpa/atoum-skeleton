@@ -92,4 +92,14 @@ class Skeleton extends atoum\test
             ->integer($this->testedInstance->useAnotherClass($head))->isEqualTo(3)
         ;
     }
+
+    public function testGetTrait()
+    {
+        $this->assert('Assert if object is good instance')
+            // No new needed can use $this->newTestedInstance(param1, param2, …)
+            ->object($this->newTestedInstance)->isInstanceOf('\Skeleton\Skeleton')
+
+            ->variable($this->testedInstance->getTrait())
+        ;
+    }
 }

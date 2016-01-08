@@ -4,6 +4,8 @@ namespace Skeleton;
 
 class Skeleton
 {
+    use SkeletonTrait;
+
     public function useAnotherClass(Head $head)
     {
         return $head->howManyEyes();
@@ -28,5 +30,10 @@ class Skeleton
     {
         return !(($isExpired && 0 <= ($countInProgress + $countToCome))
                 || (0 <= ($countInProgress + $countToCome) - 1));
+    }
+
+    public function getTrait()
+    {
+        return $this->getValue();
     }
 }
